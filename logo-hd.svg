@@ -2,122 +2,111 @@
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="800" height="800">
   <defs>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Nunito:wght@400;600;700&amp;display=swap');
       text { font-family: 'Nunito', 'Arial Rounded MT Bold', Arial, sans-serif; }
-      .tagline { font-family: Georgia, 'Times New Roman', serif; }
     </style>
 
-    <!-- Top arc for curved brand name -->
-    <path id="topArc" d="M 17,100 A 83,83 0 0,1 183,100"/>
+    <clipPath id="circleClip">
+      <circle cx="100" cy="100" r="95"/>
+    </clipPath>
 
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#4A2810" flood-opacity="0.18"/>
+    <path id="logoTextPath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="#7A4F2E" flood-opacity="0.25"/>
     </filter>
 
-    <linearGradient id="handleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#C89060"/>
-      <stop offset="50%"  stop-color="#A87040"/>
-      <stop offset="100%" stop-color="#7A5028"/>
-    </linearGradient>
-
-    <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#D4A870"/>
-      <stop offset="100%" stop-color="#8B5E32"/>
-    </linearGradient>
-
-    <radialGradient id="petalGrad" cx="50%" cy="70%" r="60%">
-      <stop offset="0%"   stop-color="#FDD4E0"/>
-      <stop offset="100%" stop-color="#EAA0B8"/>
+    <radialGradient id="bladeFill" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#B8956A"/>
+      <stop offset="100%" stop-color="#8B6B47"/>
     </radialGradient>
 
-    <radialGradient id="centerGrad" cx="40%" cy="35%" r="60%">
-      <stop offset="0%"   stop-color="#EE9AB0"/>
-      <stop offset="100%" stop-color="#C05070"/>
+    <radialGradient id="flowerCenter" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#E8889E"/>
+      <stop offset="100%" stop-color="#C8607A"/>
     </radialGradient>
   </defs>
 
-  <!-- ── OUTER RINGS ── -->
-  <circle cx="100" cy="100" r="95"  fill="none" stroke="#B89060" stroke-width="1.8" opacity="0.7"/>
-  <circle cx="100" cy="100" r="89"  fill="none" stroke="#B89060" stroke-width="0.6" opacity="0.3"/>
+  <!-- White background circle -->
+  <circle cx="100" cy="100" r="95" fill="#FFFFFF"/>
 
-  <!-- Decorative corner dots on ring -->
-  <circle cx="100"  cy="5"   r="2.2" fill="#C8A870" opacity="0.55"/>
-  <circle cx="100"  cy="195" r="2.2" fill="#C8A870" opacity="0.55"/>
-  <circle cx="5"    cy="100" r="1.8" fill="#C8A870" opacity="0.4"/>
-  <circle cx="195"  cy="100" r="1.8" fill="#C8A870" opacity="0.4"/>
+  <!-- All logo content clipped to circle -->
+  <g clip-path="url(#circleClip)">
 
-  <!-- ── CURVED BRAND NAME ── -->
-  <text font-size="11.5" font-weight="700" letter-spacing="3.2" fill="#2E1E0F">
-    <textPath href="#topArc" startOffset="50%" text-anchor="middle">TRÄDGÅRDSFIXARNA</textPath>
-  </text>
+    <!-- ── CURVED BRAND NAME ── -->
+    <text font-size="13.5" font-weight="700" letter-spacing="2.2" fill="#3D2B1F">
+      <textPath href="#logoTextPath" startOffset="8%">TrädgårdsFixarna</textPath>
+    </text>
 
-  <!-- ── SOIL MOUND ── -->
-  <ellipse cx="103" cy="143" rx="30" ry="7"   fill="#4A2C10" opacity="0.60"/>
-  <ellipse cx="103" cy="141" rx="20" ry="4"   fill="#7A5030" opacity="0.25"/>
+    <!-- ── SOIL MOUND ── -->
+    <ellipse cx="108" cy="140" rx="27" ry="7.5" fill="#5C3A1E" opacity="0.70"/>
+    <ellipse cx="108" cy="139" rx="22" ry="5"   fill="#7A5030" opacity="0.35"/>
 
-  <!-- ── TROWEL ── -->
-  <g transform="translate(114, 106) rotate(14)">
-    <!-- Collar (handle meets blade) -->
-    <rect x="-4.5" y="7" width="9" height="5" rx="1.5" fill="#7A5028"/>
+    <!-- ── TROWEL ── -->
     <!-- Handle -->
-    <rect x="-4" y="-32" width="8" height="42" rx="4" fill="url(#handleGrad)" filter="url(#shadow)"/>
-    <!-- Handle end cap -->
-    <ellipse cx="0" cy="-32" rx="5" ry="3.5" fill="#C09058"/>
-    <ellipse cx="0" cy="-32" rx="3" ry="2"   fill="#D4A870" opacity="0.6"/>
+    <rect x="104" y="78" width="8" height="48" rx="4"
+          fill="#9B6B3A" transform="rotate(12, 108, 110)" filter="url(#softShadow)"/>
     <!-- Grip rings -->
-    <rect x="-4" y="-24" width="8" height="2.2" rx="1.1" fill="#6A3E1A" opacity="0.8"/>
-    <rect x="-4" y="-18" width="8" height="2.2" rx="1.1" fill="#6A3E1A" opacity="0.8"/>
-    <!-- Blade -->
-    <path d="M -7,12 Q -10,30 0,36 Q 10,30 7,12 Z" fill="url(#bladeGrad)" filter="url(#shadow)"/>
-    <!-- Blade highlight (left shine) -->
-    <path d="M -5,12 Q -7,27 0,32" stroke="#E0C090" stroke-width="1.4" fill="none"
-          opacity="0.55" stroke-linecap="round"/>
+    <rect x="104" y="83"   width="8" height="2.5" rx="1.2" fill="#7A4F2E" transform="rotate(12, 108, 110)"/>
+    <rect x="104" y="88.5" width="8" height="2.5" rx="1.2" fill="#7A4F2E" transform="rotate(12, 108, 110)"/>
+    <!-- Blade outer -->
+    <path d="M 97,118 Q 90,138 108,145 Q 126,138 119,118 Z"
+          fill="url(#bladeFill)" transform="rotate(12, 108, 130)"/>
+    <!-- Blade highlight -->
+    <path d="M 99,118 Q 93,135 108,141 Q 123,135 117,118 Z"
+          fill="#C09A65" opacity="0.55" transform="rotate(12, 108, 130)"/>
+    <!-- Blade shine -->
+    <path d="M 103,122 Q 100,134 108,138"
+          stroke="#D4B88A" stroke-width="1.2" fill="none" opacity="0.6"
+          transform="rotate(12, 108, 130)" stroke-linecap="round"/>
+
+    <!-- ── FLOWER STEM ── -->
+    <path d="M 76,138 Q 74,112 78,88"
+          stroke="#4D7A3A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Stem highlight -->
+    <path d="M 77,136 Q 75.5,112 79,90"
+          stroke="#6AAA46" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Left leaf -->
+    <ellipse cx="70" cy="115" rx="14" ry="5.5" fill="#4A7A2E" transform="rotate(-45, 70, 115)"/>
+    <ellipse cx="70" cy="115" rx="10" ry="3"   fill="#6AAA46" opacity="0.5" transform="rotate(-45, 70, 115)"/>
+    <!-- Right leaf -->
+    <ellipse cx="84" cy="108" rx="13" ry="5"   fill="#5A8A3A" transform="rotate(20, 84, 108)"/>
+    <ellipse cx="84" cy="108" rx="9"  ry="3"   fill="#7ABB55" opacity="0.5" transform="rotate(20, 84, 108)"/>
+
+    <!-- ── FLOWER ── -->
+    <g transform="translate(78, 80)">
+      <!-- Petals -->
+      <ellipse cx="0"   cy="-14" rx="7.5" ry="11" fill="#F2B8C8" opacity="0.92"/>
+      <ellipse cx="13"  cy="-5"  rx="7.5" ry="11" fill="#F2B8C8" opacity="0.92" transform="rotate(72)"/>
+      <ellipse cx="8"   cy="11"  rx="7.5" ry="11" fill="#F2B8C8" opacity="0.92" transform="rotate(144)"/>
+      <ellipse cx="-8"  cy="11"  rx="7.5" ry="11" fill="#F2B8C8" opacity="0.92" transform="rotate(216)"/>
+      <ellipse cx="-13" cy="-5"  rx="7.5" ry="11" fill="#F2B8C8" opacity="0.92" transform="rotate(288)"/>
+      <!-- Petal highlights -->
+      <ellipse cx="0"   cy="-14" rx="4"   ry="7"  fill="#FDD4E0" opacity="0.6"/>
+      <ellipse cx="13"  cy="-5"  rx="4"   ry="7"  fill="#FDD4E0" opacity="0.6" transform="rotate(72)"/>
+      <ellipse cx="8"   cy="11"  rx="4"   ry="7"  fill="#FDD4E0" opacity="0.6" transform="rotate(144)"/>
+      <ellipse cx="-8"  cy="11"  rx="4"   ry="7"  fill="#FDD4E0" opacity="0.6" transform="rotate(216)"/>
+      <ellipse cx="-13" cy="-5"  rx="4"   ry="7"  fill="#FDD4E0" opacity="0.6" transform="rotate(288)"/>
+      <!-- Center -->
+      <circle cx="0" cy="0" r="9.5" fill="url(#flowerCenter)"/>
+      <circle cx="0" cy="0" r="5.5" fill="#C8607A"/>
+      <circle cx="0" cy="0" r="3"   fill="#B04868" opacity="0.6"/>
+      <!-- Center dots -->
+      <circle cx="0"    cy="-2.2" r="1.3" fill="#FAD0DC" opacity="0.9"/>
+      <circle cx="2.1"  cy="1"    r="1.3" fill="#FAD0DC" opacity="0.9"/>
+      <circle cx="-2.1" cy="1"    r="1.3" fill="#FAD0DC" opacity="0.9"/>
+    </g>
+
+    <!-- ── TAGLINE ── -->
+    <text x="100" y="163" text-anchor="middle" fill="#6B5744"
+          font-size="7.2" font-style="italic" letter-spacing="0.4"
+          font-family="'Playfair Display', Georgia, serif">Vi underlättar din semester</text>
+
   </g>
 
-  <!-- ── FLOWER STEM ── -->
-  <path d="M 80,141 Q 77,118 80,86"
-        stroke="#3D6A2A" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-  <!-- Stem highlight -->
-  <path d="M 81,139 Q 78.5,118 81,88"
-        stroke="#6AAA46" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
-
-  <!-- Left leaf -->
-  <path d="M 79,124 Q 58,112 63,101 Q 77,112 79,124 Z" fill="#3D6A2A"/>
-  <path d="M 79,124 Q 62,114 65,105 Q 76,114 79,124 Z" fill="#5A9A38" opacity="0.45"/>
-  <!-- Right leaf -->
-  <path d="M 81,113 Q 96,97 92,87 Q 83,100 81,113 Z" fill="#4A7A30"/>
-  <path d="M 81,113 Q 94,99 91,90 Q 84,102 81,113 Z" fill="#6AAA46" opacity="0.45"/>
-
-  <!-- ── FLOWER ── -->
-  <g transform="translate(80, 79)">
-    <!-- Petals - bezier path from center outward -->
-    <path d="M 0,0 C -6,-6 -7,-20 0,-24 C 7,-20 6,-6 0,0 Z"
-          fill="url(#petalGrad)" opacity="0.95"/>
-    <path d="M 0,0 C -6,-6 -7,-20 0,-24 C 7,-20 6,-6 0,0 Z"
-          fill="url(#petalGrad)" opacity="0.95" transform="rotate(72)"/>
-    <path d="M 0,0 C -6,-6 -7,-20 0,-24 C 7,-20 6,-6 0,0 Z"
-          fill="url(#petalGrad)" opacity="0.95" transform="rotate(144)"/>
-    <path d="M 0,0 C -6,-6 -7,-20 0,-24 C 7,-20 6,-6 0,0 Z"
-          fill="url(#petalGrad)" opacity="0.95" transform="rotate(216)"/>
-    <path d="M 0,0 C -6,-6 -7,-20 0,-24 C 7,-20 6,-6 0,0 Z"
-          fill="url(#petalGrad)" opacity="0.95" transform="rotate(288)"/>
-
-    <!-- Flower center -->
-    <circle cx="0" cy="0" r="9"   fill="url(#centerGrad)"/>
-    <circle cx="0" cy="0" r="5.5" fill="#B84060"/>
-    <circle cx="0" cy="0" r="3"   fill="#962040" opacity="0.7"/>
-
-    <!-- Stamens (5, aligned with petals) -->
-    <circle cx="0"    cy="-4.2" r="1.3" fill="#FAD8E5" opacity="0.95"/>
-    <circle cx="4"    cy="-1.3" r="1.3" fill="#FAD8E5" opacity="0.95" transform="rotate(72)"/>
-    <circle cx="4"    cy="-1.3" r="1.3" fill="#FAD8E5" opacity="0.95" transform="rotate(144)"/>
-    <circle cx="4"    cy="-1.3" r="1.3" fill="#FAD8E5" opacity="0.95" transform="rotate(216)"/>
-    <circle cx="4"    cy="-1.3" r="1.3" fill="#FAD8E5" opacity="0.95" transform="rotate(288)"/>
-  </g>
-
-  <!-- ── TAGLINE ── -->
-  <text x="100" y="165" text-anchor="middle" class="tagline"
-        fill="#7A5744" font-size="7" font-style="italic" letter-spacing="0.6">
-    Vi underlättar din semester
-  </text>
+  <!-- Decorative rings on top (drawn outside clip so they sit on the edge) -->
+  <circle cx="100" cy="100" r="95"  fill="none" stroke="#C8A87A" stroke-width="2"   opacity="0.55"/>
+  <circle cx="100" cy="100" r="88"  fill="none" stroke="#C8A87A" stroke-width="0.7" opacity="0.3"/>
 
 </svg>
