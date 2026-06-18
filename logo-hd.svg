@@ -35,12 +35,6 @@
     </radialGradient>
   </defs>
 
-  <!-- Outer ring shadow -->
-  <circle cx="100" cy="101" r="96" fill="rgba(90,60,30,0.10)"/>
-
-  <!-- Background circle -->
-  <circle cx="100" cy="100" r="96" fill="url(#bgGrad)"/>
-
   <!-- Decorative rings -->
   <circle cx="100" cy="100" r="96"  fill="none" stroke="#C8A87A" stroke-width="2"   opacity="0.45"/>
   <circle cx="100" cy="100" r="89"  fill="none" stroke="#C8A87A" stroke-width="0.7" opacity="0.25"/>
